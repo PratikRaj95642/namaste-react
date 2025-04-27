@@ -96,3 +96,11 @@ app layout
  *   - Address
  *   - Contact
  */
+
+if(lisOfResturant.length===0) {
+    return <Shimmer />;
+  }
+
+  or
+
+  lisOfResturant.length===0 ? <Shimmer /> :   are same

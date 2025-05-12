@@ -104,3 +104,36 @@ if(lisOfResturant.length===0) {
   or
 
   lisOfResturant.length===0 ? <Shimmer /> :   are same
+
+  resInfo === null ? (
+    <Shimmer />
+  ) :
+
+
+
+
+  without using customize hook fetching restaurants 
+
+   
+
+  // const fetchData = async () => {
+  //   const data = await fetch(
+  //     RESTAURANT_API
+  //   );
+
+  //   const json = await data.json();
+  //   console.log(json);
+
+  //   setListOfRestaurant(
+  //     json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
+  //   setFilteredResturant(
+  //     json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
+  // };
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  
+

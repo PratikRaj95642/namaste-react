@@ -2,35 +2,21 @@ import ResturantCart from "./ResturantCart";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import UseRestaurants from "../utils/useRestaurants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  const [lisOfResturant, setLisOfResturant] = useState([]);
+  const listOfRestaurant = UseRestaurants();
   const [FilteredResturant, setFilteredResturant] = useState([]);
   const [SearchText, setSearchText] = useState("");
-
-  console.log("body rendered");
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.95927042236349&lng=88.4505316347924&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await data.json();
-
-    // console.log(json);
-    setLisOfResturant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredResturant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
-
   useEffect(() => {
-    fetchData();
-  }, []);
+    setFilteredResturant(listOfRestaurant);
+  }, [listOfRestaurant]);
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) return(
+  <h1>Look like you are offline !! Check your internet connection..</h1>);
 
-  return lisOfResturant.length === 0 ? (
+  return !Array.isArray(listOfRestaurant) || listOfRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -46,8 +32,7 @@ const Body = () => {
           />
           <button
             onClick={() => {
-              console.log(SearchText);
-              const FilteredResturant = lisOfResturant.filter((res) =>
+              const FilteredResturant = listOfRestaurant.filter((res) =>
                 res?.info?.name
                   ?.toLowerCase()
                   .includes(SearchText.toLowerCase())
@@ -61,7 +46,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredlist = lisOfResturant.filter(
+            const filteredlist = listOfRestaurant.filter(
               (res) => res.info.avgRating > 4.4
             );
             setFilteredResturant(filteredlist);
@@ -71,9 +56,9 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {FilteredResturant.map((resturant) => (
+        {FilteredResturant.map((resturant, index) => (
           <Link
-            key={resturant.info.id}
+            key={`${resturant.info.id}-${index}`}
             to={"/restaurants/" + resturant.info.id}
           >
             <ResturantCart resData={resturant} />

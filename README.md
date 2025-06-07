@@ -137,3 +137,15 @@ if(lisOfResturant.length===0) {
   // }, []);
   
 
+restaurant menu ....
+// <ul>
+      //   {Array.isArray(itemCards) &&
+      //     itemCards.map((item, index) => (
+      //       <li key={`{item?.card?.info?.id}-${index}`}>
+      //         {item?.card?.info?.name} -{" "}
+      //         {item?.card?.info?.price / 100 ||
+      //           (item.card.info.defaultPrice || 0) / 100}{" "}
+      //         Rs
+      //       </li>
+      //     ))}
+      // </ul>

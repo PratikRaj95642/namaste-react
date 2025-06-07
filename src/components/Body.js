@@ -1,9 +1,10 @@
 import ResturantCart from "./ResturantCart";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import UseRestaurants from "../utils/useRestaurants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const listOfRestaurant = UseRestaurants();
@@ -15,6 +16,7 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) return(
   <h1>Look like you are offline !! Check your internet connection..</h1>);
+  const {LogedInUser, setUserName} = useContext(UserContext)
 
   return !Array.isArray(listOfRestaurant) || listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -54,6 +56,11 @@ const Body = () => {
         >
           Top Rated Resturant
         </button>
+      </div>
+      <div>
+        <label>User name : </label>
+        <input value={LogedInUser}
+        onChange={(e) => setUserName(e.target.value)} />
       </div>
       <div className="res-container">
         {FilteredResturant.map((resturant, index) => (

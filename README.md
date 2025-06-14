@@ -19,69 +19,6 @@
 - Tree shaking - Remove unused app
 
 
-
-// practices
-/*
-// <div id="parent">
-//    <div id="child">
-//       <h1>i am a h1 tag</h1>
-// <h2>i am a h2 tag</h2>
-//    </div>
-//    <div id="child2">
-//       <h1>i am a h1 tag</h1>
-// <h2>i am a h2 tag</h2>
-//    </div>
-// </div>
-
-// now implement in react
-
-// const parent = React.createElement(
-//         "div",
-//          {id: "parent"},
-//           [React.createElement(
-//             "div",
-//              {id: "child1"},
-//               [React.createElement("h1", {}, "hello namaste-react"),
-//                React.createElement("h2", {}, "hello from prateek")]
-//           ),
-//           React.createElement(
-//             "div",
-//              {id: "child2"},
-//               [React.createElement("h1", {}, "i am a h1 tag"),
-//                React.createElement("h2", {}, "i am a h2 tag")]
-//           )]
-//     );
-
-//     // jsx ......
-
-//     // const heading = React.createElement("h1", {id: "heading"}, "Hello World from React");
-//     const root = ReactDOM.createRoot(document.getElementById("root"));
-//     // root.render(heading);
-//     root.render(parent);
-
-// React.createElement => Object => HTMLElement(render)
-//jsx (react element)
-
-// practice sets
-
-// const heading = (<h1 className="head">Namaste React using JSX</h1>);
-// // React component...
-// const Title = () => (
-//         <h1 className="heads">Hello Prateek</h1>
-// );
-// const HeadingComponent = () => (
-//   <div id="container">
-//     <Title />
-//     {Title()}
-//     <Title></Title>
-//     {heading}
-//     <h1 className="header">Namaste from Functional component</h1>
-//   </div>);
-*/
-
-app layout
-
-
 /*
  * - Header
  *   - logo
@@ -97,55 +34,17 @@ app layout
  *   - Contact
  */
 
-if(lisOfResturant.length===0) {
-    return <Shimmer />;
-  }
+setting up testing
+ - Install react testing library
+ - Install jest
+ - install babel dependencies
+ - Configure babel
+ - Configure parcel config file to disable dafault babel transpilation
+ - Writing jest configuration
+ - jest - npx jest --init
+ - Install jsdom library
+ - install @babel/preset-react  to make jsx work in testcase
+ - Include @babel/preset-react inside babel config
+ - Install @testing-library/jest-dom  
 
-  or
 
-  lisOfResturant.length===0 ? <Shimmer /> :   are same
-
-  resInfo === null ? (
-    <Shimmer />
-  ) :
-
-
-
-
-  without using customize hook fetching restaurants 
-
-   
-
-  // const fetchData = async () => {
-  //   const data = await fetch(
-  //     RESTAURANT_API
-  //   );
-
-  //   const json = await data.json();
-  //   console.log(json);
-
-  //   setListOfRestaurant(
-  //     json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  //   );
-  //   setFilteredResturant(
-  //     json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  //   );
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  
-
-restaurant menu ....
-// <ul>
-      //   {Array.isArray(itemCards) &&
-      //     itemCards.map((item, index) => (
-      //       <li key={`{item?.card?.info?.id}-${index}`}>
-      //         {item?.card?.info?.name} -{" "}
-      //         {item?.card?.info?.price / 100 ||
-      //           (item.card.info.defaultPrice || 0) / 100}{" "}
-      //         Rs
-      //       </li>
-      //     ))}
-      // </ul>

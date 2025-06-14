@@ -14,7 +14,7 @@ const ResturantCart = (props) => {
       sla,
     } = resData?.info || {} ;
     return (
-      <div className="res-card">
+      <div data-testid="resCard" className="res-card">
         <img
           className="res-logo"
           alt="res-logo"

@@ -6,7 +6,7 @@ import About from "./components/About.js";
 import Contact from "./components/Contact.js";
 import Error from "./components/Error.js";
 import RestaurantsMenu from "./components/RestaurantsMenu.js";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantsMenu from "./components/RestaurantsMenu.js";
 import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";

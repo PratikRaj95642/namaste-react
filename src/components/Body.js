@@ -1,7 +1,7 @@
 import ResturantCart from "./ResturantCart";
 import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import UseRestaurants from "../utils/useRestaurants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
@@ -26,6 +26,7 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
+            data-testid = "searchInput"
             className="search-bar"
             value={SearchText}
             onChange={(e) => {
